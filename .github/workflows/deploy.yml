@@ -1,0 +1,25 @@
+name: Deploy Shopify Theme
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Shopify CLI
+        run: npm install -g @shopify/cli @shopify/theme
+
+      - name: Push theme to Shopify (live)
+        env:
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+          SHOPIFY_FLAG_STORE: hwwzyv-11.myshopify.com
+        run: shopify theme push --theme=148521648298 --allow-live
