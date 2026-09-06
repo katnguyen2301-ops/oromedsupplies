@@ -62,7 +62,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>New customers: 10% off your first order with code <strong>WELCOME10</strong>. Already shopped with us? Share your referral link and you and your friend both get 15% off — find your link in the rewards widget.</p>",
+            "text": "New customers: 10% off your first order with code <strong>WELCOME10</strong>. Already shopped with us? Share your referral link and you and your friend both get 15% off — find your link in the rewards widget.",
             "text_style": "body"
           }
         },
