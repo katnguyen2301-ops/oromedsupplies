@@ -15,7 +15,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Affordable Gear for Health Students",
+            "heading": "Affordable Equipment for Health Students",
             "heading_size": "hxl"
           }
         },
@@ -40,7 +40,7 @@
         "image_overlay_opacity": 20,
         "image_height": "large",
         "image_behavior": "none",
-        "desktop_content_position": "bottom-center",
+        "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "scheme-3",
