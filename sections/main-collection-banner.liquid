@@ -82,6 +82,8 @@
       assign subcats = 'vitals-diagnostic-tools|Vitals & Diagnostic Tools,reflex-neuro-assessment|Reflex & Neuro Assessment'
     when 'optometry-student-equipment'
       assign subcats = 'refraction-measurement-tools|Refraction & Measurement Tools,diagnostic-instruments|Diagnostic Instruments'
+    when 'paramedicine-student-equipment'
+      assign subcats = 'first-aid-training|First Aid Training'
   endcase
 -%}
 <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
