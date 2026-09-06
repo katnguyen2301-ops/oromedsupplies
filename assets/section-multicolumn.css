@@ -71,6 +71,8 @@
 .multicolumn:not(.background-none) .multicolumn-card {
   background: rgb(var(--color-background));
   height: 100%;
+  border-radius: 1.25rem;
+  overflow: hidden;
 }
 
 .multicolumn.background-primary .multicolumn-card {
