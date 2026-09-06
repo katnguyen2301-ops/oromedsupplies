@@ -12,6 +12,11 @@
     .collection-hero--with-image .collection-hero__inner {
       align-items: flex-start;
     }
+
+    .collection-hero__image-container-wrapper {
+      flex: 1 0 50%;
+      margin-left: 3rem;
+    }
   }
 
   .collection-hero__image-container {
@@ -30,8 +35,56 @@
     height: 100%;
     object-fit: contain;
   }
+
+  .discipline-subcategories {
+    max-width: 32rem;
+    margin: 1.5rem auto 0;
+    text-align: center;
+  }
+
+  .discipline-subcategories__label {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    margin: 0 0 1rem;
+  }
+
+  .discipline-subcategories__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+  }
+
+  .discipline-subcategories__pill {
+    display: inline-block;
+    padding: 0.7rem 1.4rem;
+    border: 1px solid rgba(var(--color-foreground), 0.3);
+    border-radius: 999px;
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+  }
+
+  .discipline-subcategories__pill:hover {
+    background-color: rgba(var(--color-foreground), 0.08);
+  }
 {%- endstyle -%}
 
+{%- liquid
+  assign subcats = blank
+  case collection.handle
+    when 'dental-simulation-gear'
+      assign subcats = 'endodontics|Endodontics,restorative-dentistry|Restorative Dentistry,oral-surgery-suturing|Oral Surgery & Suturing,typodonts-models|Typodonts & Models'
+    when 'medical-nursing-student-equipment'
+      assign subcats = 'diagnostic-tools|Diagnostic Tools,phlebotomy-iv-access|Phlebotomy & IV Access,neurological-assessment|Neurological Assessment,suturing|Suturing'
+    when 'physio-student-equiptment'
+      assign subcats = 'vitals-diagnostic-tools|Vitals & Diagnostic Tools,reflex-neuro-assessment|Reflex & Neuro Assessment'
+    when 'optometry-student-equipment'
+      assign subcats = 'refraction-measurement-tools|Refraction & Measurement Tools,diagnostic-instruments|Diagnostic Instruments'
+  endcase
+-%}
 <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
   <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     <div class="collection-hero__text-wrapper">
@@ -45,24 +98,41 @@
       {%- endif -%}
     </div>
 
-    {%- if section.settings.show_collection_image and collection.image -%}
-      <div class="collection-hero__image-container media gradient">
-        <img
-          srcset="
-            {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
-            {%- if collection.image.width >= 360 -%}{{ collection.image | image_url: width: 360 }} 360w,{%- endif -%}
-            {%- if collection.image.width >= 535 -%}{{ collection.image | image_url: width: 535 }} 535w,{%- endif -%}
-            {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
-            {%- if collection.image.width >= 1070 -%}{{ collection.image | image_url: width: 1070 }} 1070w,{%- endif -%}
-            {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
-            {{ collection.image | image_url }} {{ collection.image.width }}w
-          "
-          src="{{ collection.image | image_url: width: 750 }}"
-          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
-          alt="{{ collection.image.alt | escape }}"
-          width="{{ collection.image.width }}"
-          height="{{ collection.image.height }}"
-        >
+    {%- if section.settings.show_collection_image and collection.image or subcats != blank -%}
+      <div class="collection-hero__image-container-wrapper">
+        {%- if section.settings.show_collection_image and collection.image -%}
+          <div class="collection-hero__image-container media gradient">
+            <img
+              srcset="
+                {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
+                {%- if collection.image.width >= 360 -%}{{ collection.image | image_url: width: 360 }} 360w,{%- endif -%}
+                {%- if collection.image.width >= 535 -%}{{ collection.image | image_url: width: 535 }} 535w,{%- endif -%}
+                {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
+                {%- if collection.image.width >= 1070 -%}{{ collection.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+                {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                {{ collection.image | image_url }} {{ collection.image.width }}w
+              "
+              src="{{ collection.image | image_url: width: 750 }}"
+              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
+              alt="{{ collection.image.alt | escape }}"
+              width="{{ collection.image.width }}"
+              height="{{ collection.image.height }}"
+            >
+          </div>
+        {%- endif -%}
+
+        {%- if subcats != blank -%}
+          <div class="discipline-subcategories">
+            <p class="discipline-subcategories__label">{{ 'sections.main-collection-banner.shop_by_category' | t: default: 'Shop by category' }}</p>
+            <div class="discipline-subcategories__list">
+              {%- assign subcat_list = subcats | split: ',' -%}
+              {%- for item in subcat_list -%}
+                {%- assign parts = item | split: '|' -%}
+                <a href="/collections/{{ parts[0] }}" class="discipline-subcategories__pill">{{ parts[1] }}</a>
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endif -%}
       </div>
     {%- endif -%}
   </div>
