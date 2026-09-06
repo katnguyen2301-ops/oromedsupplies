@@ -49,6 +49,67 @@
         "show_text_below": false
       }
     },
+    "discipline_collection_list": {
+      "type": "collection-list",
+      "blocks": {
+        "dental": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "dental-simulation-gear"
+          }
+        },
+        "medicine-nursing": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "medical-nursing-student-equipment"
+          }
+        },
+        "physio": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "physio-student-equiptment"
+          }
+        },
+        "optometry": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "optometry-student-equipment"
+          }
+        },
+        "paramedicine": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "paramedicine-student-equipment"
+          }
+        },
+        "general-essentials": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "general-health-essentials"
+          }
+        }
+      },
+      "block_order": [
+        "dental",
+        "medicine-nursing",
+        "physio",
+        "optometry",
+        "paramedicine",
+        "general-essentials"
+      ],
+      "settings": {
+        "title": "Shop by Discipline",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 6,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -80,6 +141,7 @@
   },
   "order": [
     "image_banner",
+    "discipline_collection_list",
     "featured_collection"
   ]
 }
