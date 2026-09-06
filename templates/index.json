@@ -90,12 +90,12 @@
         }
       },
       "block_order": [
+        "general-essentials",
         "dental",
         "medicine-nursing",
         "physio",
         "optometry",
-        "paramedicine",
-        "general-essentials"
+        "paramedicine"
       ],
       "settings": {
         "title": "Shop by Discipline",
