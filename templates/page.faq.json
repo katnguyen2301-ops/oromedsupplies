@@ -61,6 +61,14 @@
             "row_content": "<p>Prices are listed in Australian Dollars (AUD) by default. If you select a different country using the footer selector, prices will be shown in that country's local currency where available.</p>"
           }
         },
+        "faq-pricing": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What does the crossed-out price mean?",
+            "icon": "price_tag",
+            "row_content": "<p>The crossed-out price shown on product pages is the typical market price for comparable equipment from traditional medical suppliers. The price next to it is what you'll actually pay at OroMed Supplies — we're able to offer it lower because we source directly and skip the usual distributor markups.</p>"
+          }
+        },
         "faq-6": {
           "type": "collapsible_row",
           "settings": {
@@ -86,7 +94,7 @@
           }
         }
       },
-      "block_order": ["faq-1", "faq-sourcing", "faq-2", "faq-3", "faq-4", "faq-5", "faq-6", "faq-7", "faq-8"]
+      "block_order": ["faq-1", "faq-sourcing", "faq-2", "faq-3", "faq-4", "faq-5", "faq-pricing", "faq-6", "faq-7", "faq-8"]
     }
   },
   "order": ["main"]
