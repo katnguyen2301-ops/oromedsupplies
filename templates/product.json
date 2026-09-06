@@ -48,7 +48,7 @@
         "shipping_disclaimer": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Shipping:</strong> Australian orders ship faster; international orders typically take 20–30 business days. Customers are responsible for any customs duties or import taxes charged on delivery.</p>",
+            "text": "<p><strong>Shipping:</strong> Australian orders: 10–15 business days via Australia Post. International orders: 20–30 business days. Customers are responsible for any customs duties or import taxes charged on delivery.</p>",
             "text_style": "body"
           }
         },
