@@ -37,9 +37,8 @@
   }
 
   .discipline-subcategories {
-    max-width: 32rem;
-    margin: 1.5rem auto 0;
     text-align: center;
+    padding-bottom: 3rem;
   }
 
   .discipline-subcategories__label {
@@ -47,7 +46,7 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     opacity: 0.7;
-    margin: 0 0 1rem;
+    margin: 0 0 1.2rem;
   }
 
   .discipline-subcategories__list {
@@ -121,21 +120,22 @@
           </div>
         {%- endif -%}
 
-        {%- if subcats != blank -%}
-          <div class="discipline-subcategories">
-            <p class="discipline-subcategories__label">{{ 'sections.main-collection-banner.shop_by_category' | t: default: 'Shop by category' }}</p>
-            <div class="discipline-subcategories__list">
-              {%- assign subcat_list = subcats | split: ',' -%}
-              {%- for item in subcat_list -%}
-                {%- assign parts = item | split: '|' -%}
-                <a href="/collections/{{ parts[0] }}" class="discipline-subcategories__pill">{{ parts[1] }}</a>
-              {%- endfor -%}
-            </div>
-          </div>
-        {%- endif -%}
       </div>
     {%- endif -%}
   </div>
+
+  {%- if subcats != blank -%}
+    <div class="discipline-subcategories page-width">
+      <p class="discipline-subcategories__label">Shop by category</p>
+      <div class="discipline-subcategories__list">
+        {%- assign subcat_list = subcats | split: ',' -%}
+        {%- for item in subcat_list -%}
+          {%- assign parts = item | split: '|' -%}
+          <a href="/collections/{{ parts[0] }}" class="discipline-subcategories__pill">{{ parts[1] }}</a>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
 </div>
 
 {% schema %}
