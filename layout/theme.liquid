@@ -320,6 +320,34 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+
+    {%- if template.name == 'index' -%}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "OroMed Supplies",
+          "alternateName": "OroMed Supplies Australia",
+          "url": "https://oromedsupplies.com.au",
+          {%- if settings.logo -%}
+          "logo": {{ settings.logo | image_url: width: 512 | json }},
+          {%- endif -%}
+          "description": "OroMed Supplies is an Australian online store selling affordable preclinical training and diagnostic equipment for medical, nursing, dental, physiotherapy, optometry, and paramedic students.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "AU"
+          }
+        }
+      </script>
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "OroMed Supplies",
+          "url": "https://oromedsupplies.com.au"
+        }
+      </script>
+    {%- endif -%}
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
