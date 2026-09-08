@@ -17,13 +17,19 @@
     {%- endunless -%}
 
     <title>
-      {{ page_title }}
-      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- if template == 'index' -%}
+        OroMed Supplies | Affordable Health Student Equipment Australia
+      {%- else -%}
+        {{ page_title }}
+        {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+        {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+        {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- endif -%}
     </title>
 
-    {% if page_description %}
+    {% if template == 'index' %}
+      <meta name="description" content="OroMed Supplies provides affordable practice equipment for dental, medical, nursing, physiotherapy, optometry and paramedicine students across Australia. Shop student-focused training equipment for preclinical practice and OSCE preparation.">
+    {% elsif page_description %}
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
 
