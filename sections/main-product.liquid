@@ -141,6 +141,13 @@
                       {{ form | payment_terms }}
                     {%- endform -%}
                   </div>
+                {%- when 'market_price_note' -%}
+                  {%- if product.metafields.custom.market_price.value -%}
+                    <p class="product__text inline-richtext subtitle" {{ block.shopify_attributes }}>
+                      Comparable equipment from other retailers is typically priced around
+                      {{ product.metafields.custom.market_price.value | money }} — this is what we charge.
+                    </p>
+                  {%- endif -%}
                 {%- when 'inventory' -%}
                   <p
                     class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -793,6 +800,11 @@
           "label": "t:sections.main-product.blocks.text.settings.text_style.label"
         }
       ]
+    },
+    {
+      "type": "market_price_note",
+      "name": "Market price note",
+      "limit": 1
     },
     {
       "type": "title",

@@ -28,11 +28,8 @@
           "settings": {}
         },
         "price_disclaimer": {
-          "type": "text",
-          "settings": {
-            "text": "The crossed-out price reflects the typical market price for comparable equipment — our price is what you actually pay.",
-            "text_style": "subtitle"
-          }
+          "type": "market_price_note",
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",

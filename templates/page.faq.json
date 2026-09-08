@@ -64,9 +64,9 @@
         "faq-pricing": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What does the crossed-out price mean?",
+            "heading": "How do your prices compare to other retailers?",
             "icon": "price_tag",
-            "row_content": "<p>The crossed-out price shown on product pages is the typical market price for comparable equipment from traditional medical suppliers. The price next to it is what you'll actually pay at OroMed Supplies — we're able to offer it lower because we source directly and skip the usual distributor markups.</p>"
+            "row_content": "<p>On many product pages you'll see a note showing the typical price for comparable equipment from traditional medical suppliers, alongside our own price. We're able to offer it lower because we source directly and skip the usual distributor markups.</p>"
           }
         },
         "faq-6": {
